@@ -25,7 +25,8 @@ gallery:
   - https://i.imgur.com/yyVG0Jb.jpeg
 releaseNotes: >-
   Add what's new in the latest version of your app here.
-dependencies: []
+dependencies:
+  -lightning
 path: ""
 defaultUsername: ""
 defaultPassword: ""
