@@ -14,6 +14,8 @@ services:
     environment:
       LMT_CONF_PATH: /app
       LMT_CORE_URL: http://core:5050
+    networks:
+      default:
 
   core:
     image: asheswook/lightning-multitool:v0.1.7-beta
@@ -30,6 +32,8 @@ services:
       - sh
       - -c
       - /app/lmt
+    networks:
+      default:
 
 volumes:
   lmt-data:
