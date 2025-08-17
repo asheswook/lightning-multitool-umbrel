@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+
+  app_proxy:
+    environment:
+      APP_HOST: lightning-multitool_core_1
+      APP_PORT: 3000
+    
+  backend:
+    image: asheswook/lightning-multitool:v0.1.4-beta@sha256:30f2f30861d7a3d9aa37bfd617e6c341877c34c6c392e53801dd01b253b1053c
+    user: "1000:1000"
+    init: true
