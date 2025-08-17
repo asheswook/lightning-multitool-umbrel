@@ -5,11 +5,6 @@ services:
   app_proxy:
     environment:
       APP_HOST: lightning-multitool_core_1
-      APP_PORT: 5050
-
-  app_proxy_2:
-    environment:
-      APP_HOST: lightning-multitool_gui_1
       APP_PORT: 3000
 
   gui:
