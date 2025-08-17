@@ -8,6 +8,12 @@ services:
       APP_PORT: 3000
     
   backend:
-    image: asheswook/lightning-multitool:v0.1.4-beta@sha256:ebb13bade8a9d5ca368eba82dcb926794dd08f88521094a5a59ccfd239ea4f3a
+    image: asheswook/lightning-multitool:v0.1.5-beta@sha256:d7304b09260b3f8925ccd5430efa7a8c58d61359c6b7f269c9e98e752e59357a
     user: "1000:1000"
     init: true
+    volumes:
+      - ${APP_LIGHTNING_NODE_DATA_DIR}:/root/.lnd:ro
+    command:
+      - sh
+      - -c
+      - /app/lmt -general.username=test --server.host=${APP_HOST} --server.port=${APP_PORT} --lnd.host='${APP_LIGHTNING_NODE_HOST}:${APP_LIGHTNING_NODE_PORT}' --lnurl.domain=pororo.ro --server.host=0.0.0.0 --server.port=5001
