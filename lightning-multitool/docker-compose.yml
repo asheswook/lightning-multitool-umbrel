@@ -13,7 +13,7 @@ services:
     init: true
     volumes:
       - ${APP_LIGHTNING_NODE_DATA_DIR}:/root/.lnd:ro
-    command:
+    entrypoint:
       - sh
       - -c
-      - /app/lmt -general.username=test --server.host=${APP_HOST} --server.port=${APP_PORT} --lnd.host='${APP_LIGHTNING_NODE_HOST}:${APP_LIGHTNING_NODE_PORT}' --lnurl.domain=pororo.ro --server.host=0.0.0.0 --server.port=5001
+      - /app/lmt --general.username=test --server.host=${APP_HOST} --server.port=${APP_PORT} --lnd.host='${APP_LIGHTNING_NODE_HOST}:${APP_LIGHTNING_NODE_PORT}' --lnurl.domain=pororo.ro --server.host=0.0.0.0 --server.port=5001
