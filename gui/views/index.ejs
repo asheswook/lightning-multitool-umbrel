@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightning Multitool Settings</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lightning Multitool Settings</h1>
+
+        <% if (typeof saved !== 'undefined' && saved) { %>
+            <div class="alert success">Configuration saved successfully!</div>
+        <% } %>
+
+        <form action="/save" method="post">
+            <h2>General</h2>
+            <div class="form-group">
+                <label for="general.username">Username</label>
+                <input type="text" id="general.username" name="general.username" value="<%= config.General ? config.General['general.username'] || '' : '' %>">
+            </div>
+
+            <h2>Oksusu</h2>
+            <div class="form-group">
+                <label for="oksusu.enabled">Enable Oksusu</label>
+                <input type="checkbox" id="oksusu.enabled" name="oksusu.enabled" <%= (config.Oksusu && config.Oksusu['oksusu.enabled'] === 'true') ? 'checked' : '' %>>
+            </div>
+            <div class="form-group">
+                <label for="oksusu.token">Oksusu Token</label>
+                <input type="text" id="oksusu.token" name="oksusu.token" value="<%= config.Oksusu ? config.Oksusu['oksusu.token'] || '' : '' %>">
+            </div>
+            <div class="form-group">
+                <label for="oksusu.server">Oksusu Server</label>
+                <input type="text" id="oksusu.server" name="oksusu.server" value="<%= config.Oksusu ? config.Oksusu['oksusu.server'] || 'oksu.su' : 'oksu.su' %>">
+            </div>
+
+            <h2>Server</h2>
+            <div class="form-group">
+                <label for="server.host">Host</label>
+                <input type="text" id="server.host" name="server.host" value="<%= config.Server ? config.Server['server.host'] || '127.0.0.1' : '127.0.0.1' %>">
+            </div>
+            <div class="form-group">
+                <label for="server.port">Port</label>
+                <input type="number" id="server.port" name="server.port" value="<%= config.Server ? config.Server['server.port'] || '5050' : '5050' %>">
+            </div>
+
+            <h2>LND</h2>
+            <div class="form-group">
+                <label for="lnd.host">LND REST Host</label>
+                <input type="text" id="lnd.host" name="lnd.host" value="<%= config.LND ? config.LND['lnd.host'] || 'localhost:8080' : 'localhost:8080' %>">
+            </div>
+            <div class="form-group">
+                <label for="lnd.macaroonpath">Macaroon Path</label>
+                <input type="text" id="lnd.macaroonpath" name="lnd.macaroonpath" value="<%= config.LND ? config.LND['lnd.macaroonpath'] || '' : '' %>">
+            </div>
+
+            <h2>LNURL</h2>
+            <div class="form-group">
+                <label for="lnurl.domain">Domain</label>
+                <input type="text" id="lnurl.domain" name="lnurl.domain" value="<%= config.LNURL ? config.LNURL['lnurl.domain'] || '' : '' %>">
+            </div>
+            <div class="form-group">
+                <label for="lnurl.min-sendable">Min Sendable (msat)</label>
+                <input type="number" id="lnurl.min-sendable" name="lnurl.min-sendable" value="<%= config.LNURL ? config.LNURL['lnurl.min-sendable'] || '1000' : '1000' %>">
+            </div>
+            <div class="form-group">
+                <label for="lnurl.max-sendable">Max Sendable (msat)</label>
+                <input type="number" id="lnurl.max-sendable" name="lnurl.max-sendable" value="<%= config.LNURL ? config.LNURL['lnurl.max-sendable'] || '1000000000' : '1000000000' %>">
+            </div>
+            <div class="form-group">
+                <label for="lnurl.comment-allowed">Max Comment Length</label>
+                <input type="number" id="lnurl.comment-allowed" name="lnurl.comment-allowed" value="<%= config.LNURL ? config.LNURL['lnurl.comment-allowed'] || '255' : '255' %>">
+            </div>
+
+            <h2>Nostr</h2>
+            <div class="form-group">
+                <label for="nostr.privatekey">Private Key (nsec)</label>
+                <input type="password" id="nostr.privatekey" name="nostr.privatekey" value="<%= config.Nostr ? config.Nostr['nostr.privatekey'] || '' : '' %>">
+            </div>
+            <div class="form-group">
+                <label for="nostr.publickey">Public Key (npub)</label>
+                <input type="text" id="nostr.publickey" name="nostr.publickey" value="<%= config.Nostr ? config.Nostr['nostr.publickey'] || '' : '' %>">
+            </div>
+            <div class="form-group">
+                <label for="nostr.relays">Relays (comma-separated)</label>
+                <input type="text" id="nostr.relays" name="nostr.relays" value="<%= config.Nostr ? config.Nostr['nostr.relays'] || 'wss://relay.damus.io,wss://relay.primal.net' : 'wss://relay.damus.io,wss://relay.primal.net' %>">
+            </div>
+
+            <button type="submit">Save Configuration</button>
+        </form>
+    </div>
+</body>
+</html>

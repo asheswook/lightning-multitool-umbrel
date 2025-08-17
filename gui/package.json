@@ -1,0 +1,15 @@
+{
+  "name": "lightning-multitool-gui",
+  "version": "1.0.0",
+  "description": "GUI for Lightning Multitool on Umbrel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "ini": "^4.1.2"
+  }
+}
