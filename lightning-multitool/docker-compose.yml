@@ -13,13 +13,13 @@ services:
       - lmt-data:/app
     environment:
       LMT_CONF_PATH: /app
-      LMT_CORE_URL: http://${APP_LMT_IP}:${APP_LMT_PORT}
+      LMT_CORE_URL: http://${APP_LMT_IP}:${APP_LMT_API_PORT}
     networks:
       default:
         ipv4_address: ${APP_LMT_GUI_IP}
 
   core:
-    image: asheswook/lightning-multitool:v0.1.7-beta
+    image: asheswook/lightning-multitool:v0.1.8-beta
     user: root
     deploy:
       restart_policy:

@@ -1,5 +1,7 @@
 export APP_LMT_GUI_IP="10.21.78.33"
-export APP_LMT_IP="10.21.78.55"
-
 export APP_LMT_GUI_PORT="3030"
+
+export APP_LMT_IP="10.21.78.55"
 export APP_LMT_PORT="5050"
+
+export APP_LMT_API_PORT="5051"
