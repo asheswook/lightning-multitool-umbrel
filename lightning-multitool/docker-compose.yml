@@ -1,15 +1,10 @@
 version: "3.7"
 
 services:
-  gui_proxy:
+  app_proxy:
     environment:
       APP_HOST: lightning-multitool_gui_1
       APP_PORT: 3030
-
-  core_proxy:
-    environment:
-      APP_HOST: lightning-multitool_core_1
-      APP_PORT: 5050
 
   gui:
     image: asheswook/lightning-multitool-umbrel:v0.0.4
