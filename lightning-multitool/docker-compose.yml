@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: lightning-multitool_gui_1
+      APP_HOST: ${APP_LMT_GUI_IP}
       APP_PORT: 3030
 
   gui:
@@ -13,9 +13,10 @@ services:
       - lmt-data:/app
     environment:
       LMT_CONF_PATH: /app
-      LMT_CORE_URL: http://core:5050
+      LMT_CORE_URL: http://${APP_LMT_IP}:${APP_LMT_PORT}
     networks:
       default:
+        ipv4_address: ${APP_LMT_GUI_IP}
 
   core:
     image: asheswook/lightning-multitool:v0.1.7-beta
@@ -34,6 +35,7 @@ services:
       - /app/lmt
     networks:
       default:
+        ipv4_address: ${APP_LMT_IP}
 
 volumes:
   lmt-data:
