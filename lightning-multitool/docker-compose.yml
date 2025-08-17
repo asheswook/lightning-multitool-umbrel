@@ -2,11 +2,14 @@ version: "3.7"
 
 services:
 
-  app:
-    image: getumbrel/umbrel-app-proxy:v1.1.1
-    restart: on-failure
+  app_proxy:
     environment:
-      APP_HOST: app-ui
+      APP_HOST: lightning-multitool_core_1
+      APP_PORT: 5050
+
+  app_ui_proxy:
+    environment:
+      APP_HOST: lightning-multitool_gui_1
       APP_PORT: 3000
 
   app-ui:
