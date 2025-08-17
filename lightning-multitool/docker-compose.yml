@@ -2,18 +2,28 @@ version: "3.7"
 
 services:
 
-  app_proxy:
+  app:
+    build: ../gui
+    restart: on-failure
+    volumes:
+      - lmt-data:/app
     environment:
-      APP_HOST: lightning-multitool_core_1
-      APP_PORT: 3000
-    
+      LMT_CONF_PATH: /app
+
   backend:
-    image: asheswook/lightning-multitool:v0.1.5-beta@sha256:d7304b09260b3f8925ccd5430efa7a8c58d61359c6b7f269c9e98e752e59357a
-    user: "1000:1000"
+    image: asheswook/lightning-multitool:v0.1.6-beta
     init: true
+    user: root
+    restart: on-failure
     volumes:
       - ${APP_LIGHTNING_NODE_DATA_DIR}:/root/.lnd:ro
-    entrypoint:
-      - sh
-      - -c
-      - /app/lmt --general.username=test --server.host=${APP_HOST} --server.port=${APP_PORT} --lnd.host='${APP_LIGHTNING_NODE_HOST}:${APP_LIGHTNING_NODE_PORT}' --lnurl.domain=pororo.ro --server.host=0.0.0.0 --server.port=5001
+      - lmt-data:/app
+    entrypoint: >
+      sh -c "/app/lmt 
+      --configfile=/app/lmt.conf 
+      --server.host=0.0.0.0 
+      --server.port=5050 
+      --lnd.host='${APP_LIGHTNING_NODE_HOST}:${APP_LIGHTNING_NODE_PORT}'"
+
+volumes:
+  lmt-data:

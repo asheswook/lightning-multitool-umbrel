@@ -1,31 +1,33 @@
 manifestVersion: 1
 id: lightning-multitool
 name: Lightning Multitool
-tagline: Replace this tagline with your app's tagline
-icon: https://svgur.com/i/mvA.svg
+version: "0.1.0"
+tagline: "A collection of tools for your Lightning Node."
+
 category: bitcoin
-version: "1.0.0"
-port: 4000
+port: 3000
+
 description: >-
-  Add your app's description here.
+  Lightning Multitool is a suite of tools for your Lightning Node, 
+  including LNURL, Nostr integration, and more. Use the web interface 
+  to easily configure and manage all features.
 
-
-  You can also add newlines!
+releaseNotes: >-
+  Initial release of Lightning Multitool on the Umbrel App Store. 
+  This version includes a web GUI for easy configuration.
 
 developer: Pororo
-website: https://umbrel.com
-submitter: Umbrel
-submission: https://github.com/getumbrel/umbrel-hello-world-app
-repo: https://github.com/getumbrel/umbrel-hello-world-app
-support: https://github.com/getumbrel/umbrel-hello-world-app/issues
-gallery:
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg
-releaseNotes: >-
-  Add what's new in the latest version of your app here.
+website: https://github.com/asheswook/lightning-multitool
+repo: https://github.com/asheswook/lightning-multitool
+support: https://github.com/asheswook/lightning-multitool/issues
+
+submission: 1
+
+icon: https://oksu.su/_next/image?url=%2Foksusu.png&w=64&q=75
+
+# Dependencies of the app.
 dependencies:
   - lightning
-path: ""
-defaultUsername: ""
-defaultPassword: ""
+
+# The docker-compose file for the app.
+composeFile: "docker-compose.yml"
