@@ -16,7 +16,7 @@ services:
       LMT_BACKEND_URL: http://backend:5050
 
   backend:
-    image: asheswook/lightning-multitool:v0.1.5-beta@sha256:d7304b09260b3f8925ccd5430efa7a8c58d61359c6b7f269c9e98e752e59357a
+    image: asheswook/lightning-multitool:v0.1.6-beta
     user: root
     deploy:
       restart_policy:
