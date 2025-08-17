@@ -22,7 +22,6 @@ services:
     init: true
     volumes:
       - ${APP_LIGHTNING_NODE_DATA_DIR}:/root/.lnd:ro
-    command:
     entrypoint:
       - sh
       - -c
