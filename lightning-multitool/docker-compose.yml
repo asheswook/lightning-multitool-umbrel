@@ -8,6 +8,6 @@ services:
       APP_PORT: 3000
     
   backend:
-    image: asheswook/lightning-multitool:v0.1.4-beta
+    image: asheswook/lightning-multitool:v0.1.4-beta@sha256:ebb13bade8a9d5ca368eba82dcb926794dd08f88521094a5a59ccfd239ea4f3a
     user: "1000:1000"
     init: true
