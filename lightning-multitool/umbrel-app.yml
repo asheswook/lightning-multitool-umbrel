@@ -5,7 +5,7 @@ version: "0.1.0"
 tagline: "A collection of tools for your Lightning Node."
 
 category: bitcoin
-port: 3000
+port: 3030
 
 description: >-
   Lightning Multitool is a suite of tools for your Lightning Node, 
