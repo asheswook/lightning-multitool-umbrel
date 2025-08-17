@@ -1,26 +1,31 @@
 version: "3.7"
 
 services:
-  app_proxy:
+  gui_proxy:
     environment:
       APP_HOST: lightning-multitool_gui_1
       APP_PORT: 3030
 
+  core_proxy:
+    environment:
+      APP_HOST: lightning-multitool_core_1
+      APP_PORT: 5050
+
   gui:
-    image: asheswook/lightning-multitool-umbrel:v0.0.3
+    image: asheswook/lightning-multitool-umbrel:v0.0.4
     restart: on-failure
     volumes:
       - lmt-data:/app
     environment:
       LMT_CONF_PATH: /app
-      LMT_BACKEND_URL: http://backend:5050
+      LMT_CORE_URL: http://core:5050
 
-  backend:
-    image: asheswook/lightning-multitool:v0.1.6-beta
+  core:
+    image: asheswook/lightning-multitool:v0.1.7-beta
     user: root
     deploy:
       restart_policy:
-        condition: on-failure
+        condition: any
         delay: 5s
     init: true
     volumes:
