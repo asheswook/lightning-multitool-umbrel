@@ -12,22 +12,20 @@ description: >-
   including LNURL, Nostr integration, and more. Use the web interface 
   to easily configure and manage all features.
 
-releaseNotes: >-
-  Initial release of Lightning Multitool on the Umbrel App Store. 
-  This version includes a web GUI for easy configuration.
-
 developer: Pororo
 website: https://github.com/asheswook/lightning-multitool
 repo: https://github.com/asheswook/lightning-multitool
 support: https://github.com/asheswook/lightning-multitool/issues
 
-submission: 1
-
-icon: https://oksu.su/_next/image?url=%2Foksusu.png&w=64&q=75
-
-# Dependencies of the app.
-dependencies:
-  - lightning
-
-# The docker-compose file for the app.
-composeFile: "docker-compose.yml"
+submitter: Umbrel
+submission: https://github.com/getumbrel/umbrel-hello-world-app
+gallery:
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+releaseNotes: >-
+  Add what's new in the latest version of your app here.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

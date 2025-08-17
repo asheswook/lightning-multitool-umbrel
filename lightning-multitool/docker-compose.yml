@@ -1,7 +1,6 @@
 version: "3.7"
 
 services:
-
   app_proxy:
     environment:
       APP_HOST: lightning-multitool_core_1
