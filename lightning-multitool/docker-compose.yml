@@ -7,19 +7,19 @@ services:
       APP_PORT: 3030
 
   gui:
-    image: asheswook/lightning-multitool-umbrel:v0.0.6
+    image: asheswook/lightning-multitool-umbrel:v0.0.7
     restart: on-failure
     volumes:
       - lmt-data:/app
     environment:
       LMT_CONF_PATH: /app
-      LMT_CORE_URL: http://${APP_LMT_IP}:${APP_LMT_API_PORT}
+      LMT_CORE_URL: "http://${APP_LMT_IP}:${APP_LMT_API_PORT}"
     networks:
       default:
         ipv4_address: ${APP_LMT_GUI_IP}
 
   core:
-    image: asheswook/lightning-multitool:v0.1.8-beta
+    image: asheswook/lightning-multitool:v0.1.9-beta
     user: root
     deploy:
       restart_policy:
@@ -33,6 +33,9 @@ services:
       - sh
       - -c
       - /app/lmt
+    ports:
+      - ${APP_LMT_API_PORT}:${APP_LMT_API_PORT}
+      - ${APP_LMT_PORT}:${APP_LMT_PORT}
     networks:
       default:
         ipv4_address: ${APP_LMT_IP}
