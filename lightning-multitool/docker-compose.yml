@@ -33,6 +33,8 @@ services:
       - sh
       - -c
       - /app/lmt
+    environment:
+      LND_HOST: ${APP_LIGHTNING_NODE_IP}:${APP_LIGHTNING_NODE_REST_PORT}
     ports:
       - ${APP_LMT_API_PORT}:${APP_LMT_API_PORT}
       - ${APP_LMT_PORT}:${APP_LMT_PORT}
