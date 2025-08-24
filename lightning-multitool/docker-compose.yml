@@ -32,7 +32,7 @@ services:
     entrypoint:
       - sh
       - -c
-      - /app/lmt
+      - /usr/local/bin/lmt
     environment:
       LND_HOST: ${APP_LIGHTNING_NODE_IP}:${APP_LIGHTNING_NODE_REST_PORT}
     ports:
