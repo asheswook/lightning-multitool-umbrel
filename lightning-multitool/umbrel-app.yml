@@ -1,7 +1,7 @@
 manifestVersion: 1
 id: lightning-multitool
 name: Lightning Multitool
-version: "0.1.0"
+version: "0.1.11-beta"
 tagline: "A collection of tools for your Lightning Node."
 
 category: bitcoin
